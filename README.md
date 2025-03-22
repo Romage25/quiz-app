@@ -1,8 +1,8 @@
-# Trivio App
+# Triviona App
 
 
 ## 🚀 Overview
-Welcome to the Trivio App – a fun and engaging trivia game for everyone! This app allows users to test their knowledge on various topics, answering multiple-choice and true/false questions fetched from the Open Trivia Database (OpenTDB). The app is completely free and accessible to all!
+Welcome to the Triviona App – a fun and engaging trivia game for everyone! This app allows users to test their knowledge on various topics, answering multiple-choice and true/false questions fetched from the Open Trivia Database (OpenTDB). The app is completely free and accessible to all!
 
 ## 🛠️ Built With
 
@@ -73,4 +73,4 @@ https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple
 
 This project is open-source and available for personal and educational use.
 
-Enjoy playing and improving your knowledge with Trivio App! 🚀🎉
+Enjoy playing and improving your knowledge with Triviona App! 🚀🎉
