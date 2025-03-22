@@ -15,7 +15,7 @@ const restartQuiz = () => {
 </script>
 
 <template>
-    <div class="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-green-500 to-blue-600 p-4">
+    <div class="flex flex-col items-center justify-center h-full bg-gradient-to-br from-green-500 to-blue-600 p-4">
         <div class="bg-white p-6 rounded-2xl shadow-lg text-center max-w-md w-full">
             <h2 class="text-2xl font-bold text-blue-600">Quiz Completed! 🎉</h2>
             <p class="text-lg mt-2">Your Score: <span class="font-bold text-green-600">{{ score }} / {{ totalQuestions }}</span></p>

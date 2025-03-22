@@ -5,13 +5,15 @@ import axios from 'axios';
 import SplashScreen from '../components/SplashScreen.vue';
 
 const route = useRoute();
+
 const selectedCategory = ref(route.query.category || "");
-const loading = ref(true);
-const error = ref(null);
-const availableQuestions = ref([]);
 const selectedNumber = ref(10);
 const selectedDifficulty = ref("");
 const selectedType = ref("");
+const availableQuestions = ref([]);
+
+const loading = ref(true);
+const error = ref(null);
 
 const showSplash = ref(true);
 
@@ -28,10 +30,9 @@ const questionTypes = ref([
     { value: "boolean", label: "True / False" }
 ]);
 
-const fetchQuestionCount = async () => {
-    if (!selectedCategory.value) return;
+const fetchQuestionCount = async (category) => {
     try {
-        const response = await axios.get(`https://opentdb.com/api_count.php?category=${selectedCategory.value}`);
+        const response = await axios.get(`https://opentdb.com/api_count.php?category=${category}`);
         const totalQuestionsAvailable = response.data.category_question_count.total_question_count;
         const totalQuestions = totalQuestionsAvailable > 30 ? 30 : totalQuestionsAvailable;
         
@@ -47,14 +48,13 @@ const fetchQuestionCount = async () => {
 
 onMounted(() => {
     if (selectedCategory.value) {
-        fetchQuestionCount();
+        fetchQuestionCount(selectedCategory.value);
     } else {
-        const defaultMaximumQuestionAmount = 20
-        availableQuestions.value = Array.from({ length: defaultMaximumQuestionAmount / 5 }, (_, i) => (i + 1) * 5);
+        const defaultQuestionAmount = [5, 10, 15, 20];
+        availableQuestions.value = defaultQuestionAmount;
         loading.value = false;
     }
     
-    // Hide splash screen after 3 seconds
     setTimeout(() => {
         showSplash.value = false;
     }, 1000);
@@ -69,11 +69,10 @@ onMounted(() => {
         <div class="bg-white p-6 rounded-2xl shadow-lg text-center max-w-md w-full">
             <h1 class="text-2xl font-bold text-gray-800 mb-3">Customize Your Quiz</h1>
 
-            <div v-if="loading" class="text-gray-600 text-lg font-medium">Loading question count...</div>
             <div v-if="error" class="text-red-500 text-lg font-medium">{{ error }}</div>
 
-            <div v-if="!loading">
-                <!-- Difficulty Dropdown -->
+            <div v-if="loading" class="text-gray-600 text-lg font-medium">Loading question count...</div>
+            <div v-else>
                 <div class="w-full text-left mb-4">
                     <label class="text-gray-700 font-semibold">Difficulty</label>
                     <select v-model="selectedDifficulty" class="block w-full px-4 py-2 mt-1 border rounded-lg shadow-sm">
@@ -83,7 +82,6 @@ onMounted(() => {
                     </select>
                 </div>
 
-                <!-- Number of Questions Dropdown -->
                 <div class="w-full text-left mb-4">
                     <label class="text-gray-700 font-semibold">Number of Questions</label>
                     <select v-model="selectedNumber" class="block w-full px-4 py-2 mt-1 border rounded-lg shadow-sm">
@@ -93,7 +91,6 @@ onMounted(() => {
                     </select>
                 </div>
 
-                <!-- Question Type Dropdown -->
                 <div class="w-full text-left mb-4">
                     <label class="text-gray-700 font-semibold">Question Type</label>
                     <select v-model="selectedType" class="block w-full px-4 py-2 mt-1 border rounded-lg shadow-sm">
@@ -103,7 +100,6 @@ onMounted(() => {
                     </select>
                 </div>
 
-                <!-- Navigation Buttons -->
                 <div class="mt-6 flex justify-between w-full">
                     <router-link to="/category" class="px-5 py-2 bg-gray-500 text-white rounded-full shadow-md hover:bg-gray-600 transition">
                         Back

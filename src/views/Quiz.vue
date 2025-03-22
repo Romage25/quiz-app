@@ -15,9 +15,11 @@ const selectedAmount = ref(route.query.amount || "");
 
 const loading = ref(true);
 const error = ref(null);
+
 const questions = ref([]);
 const currentIndex = ref(0);
 const score = ref(0);
+
 const showSplash = ref(true);
 
 const fetchQuestions = async () => {
@@ -62,18 +64,15 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-500 to-purple-600 p-4">
+    <div class="flex flex-col items-center justify-center h-full bg-gradient-to-br from-blue-500 to-purple-600 p-4">
         <div class="bg-white p-6 rounded-2xl shadow-lg text-center max-w-md w-full">
             <!-- Splash Screen -->
             <SplashScreen v-if="showSplash" />
 
-            <!-- Error Message -->
             <p v-if="error" class="text-red-600">{{ error }}</p>
 
-            <!-- Loading Indicator -->
             <p v-if="loading">Loading Questions...</p>
 
-            <!-- Quiz Questions -->
             <Questions 
                 v-if="questions.length > 0 && currentIndex < questions.length" 
                 :question="questions[currentIndex]" 

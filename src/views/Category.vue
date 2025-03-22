@@ -14,7 +14,7 @@ const fetchCategories = async () => {
     try {
         const response = await axios.get('https://opentdb.com/api_category.php');
         categories.value = [{ id: 1, name: "Any" } , ...response.data.trivia_categories];
-        selectedCategory.value = categories.value[0]?.id || null;
+        selectedCategory.value = categories.value[0]?.id || 1;
     } catch (err) {
         error.value = "Failed to load categories. Please try again.";
     } finally {
@@ -25,7 +25,6 @@ const fetchCategories = async () => {
 onMounted(() => {
     fetchCategories();
     
-    // Hide splash screen after 3 seconds
     setTimeout(() => {
         showSplash.value = false;
     }, 1000);
@@ -41,10 +40,10 @@ onMounted(() => {
         <div class="bg-white p-6 rounded-2xl shadow-lg text-center max-w-md w-full">
             <h1 class="text-2xl font-bold text-gray-800 mb-3">Select a Category</h1>
 
-            <div v-if="loading" class="text-gray-600 text-lg font-medium">Loading categories...</div>
             <div v-if="error" class="text-red-500 text-lg font-medium">{{ error }}</div>
 
-            <div v-if="!loading" class="w-full text-left mb-4">
+            <div v-if="loading" class="text-gray-600 text-lg font-medium">Loading categories...</div>
+            <div v-else class="w-full text-left mb-4">
                 <label class="text-gray-700 font-semibold">Category</label>
                 <select v-model="selectedCategory" class="block w-full px-4 py-2 mt-1 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400">
                     <option v-for="category in categories" :key="category.id" :value="category.id">
