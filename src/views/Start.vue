@@ -71,10 +71,10 @@ onMounted(() => {
 
             <!-- Quiz Settings Overview -->
             <div v-if="!loading" class="text-left w-full border p-5 rounded-lg shadow-md bg-gray-100/80">
-                <p class="text-lg flex items-center"><strong>📚 Category:</strong> <span class="ml-2">{{ categoryName }}</span></p>
-                <p class="text-lg flex items-center"><strong>📈 Difficulty:</strong> <span class="ml-2">{{ capitalizeFirstLetter(selectedDifficulty) || 'Any' }}</span></p>
-                <p class="text-lg flex items-center"><strong>❓ Number of Questions:</strong> <span class="ml-2">{{ selectedNumber }}</span></p>
-                <p class="text-lg flex items-center"><strong>🔠 Question Type:</strong> <span class="ml-2">{{ formatQuestionType(selectedType) }}</span></p>
+                <p class="text-base flex items-center"><strong>📚 Category:</strong> <span class="ml-2">{{ categoryName }}</span></p>
+                <p class="text-base flex items-center"><strong>📈 Difficulty:</strong> <span class="ml-2">{{ capitalizeFirstLetter(selectedDifficulty) || 'Any' }}</span></p>
+                <p class="text-base flex items-center"><strong>❓ Number of Questions:</strong> <span class="ml-2">{{ selectedNumber }}</span></p>
+                <p class="text-base flex items-center"><strong>🔠 Question Type:</strong> <span class="ml-2">{{ formatQuestionType(selectedType) }}</span></p>
             </div>
 
             <p class="mt-6 text-gray-700 italic text-lg">
