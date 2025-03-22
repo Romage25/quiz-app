@@ -5,7 +5,7 @@
             <div class="icon-wrapper">
                 <img src="../assets/vue.svg" alt="App Logo" class="logo" />
             </div>
-            <h1 class="app-name">Quiz Trivia App</h1>
+            <h1 class="app-name">Trivio App</h1>
             <p class="tagline">Test your knowledge and have fun!</p>
             <div class="loading-dots">
                 <span></span>
