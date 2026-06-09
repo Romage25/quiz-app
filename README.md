@@ -1,76 +1,105 @@
-# Triviona App
+# 📊 Triviona App
 
+A simple web application that fetches and displays trivia questions using the Open Trivia Database API.
 
-## 🚀 Overview
-Welcome to the Triviona App – a fun and engaging trivia game for everyone! This app allows users to test their knowledge on various topics, answering multiple-choice and true/false questions fetched from the Open Trivia Database (OpenTDB). The app is completely free and accessible to all!
+---
 
-## 🛠️ Built With
+## 🌐 Live Demo
 
-- Vue 3 – Modern JavaScript framework for building interactive UI.
+https://triviona-app.vercel.app/
 
-- Vite – Next-generation frontend tooling for fast and optimized development.  
+---
 
-- Tailwind CSS – Utility-first CSS framework for a sleek and responsive design.
+## 📌 Overview
 
-- Open Trivia Database API – Provides a wide range of quiz questions from different categories.
+Triviona App is a lightweight trivia web application that retrieves questions and answers from the **Open Trivia Database (OpenTDB)** API.
 
-## 🌟 Features
+Users can view trivia questions through a clean and simple interface designed for fast interaction.
 
-- 🎯 Select quiz categories, difficulty levels, and question types.
+The project focuses on:
+- Fast API-based data retrieval
+- Simple UI/UX
+- Clean and responsive design
+- Easy deployment and scalability
 
-- 🔀 Randomized multiple-choice and true/false questions.
+---
 
-- ✅ Instant feedback on correct and incorrect answers.
+## ✨ Features
 
-- 📊 Score summary at the end of the quiz.
+- 🧠 Fetches trivia questions from OpenTDB API  
+- 💬 Simple and interactive interface  
+- ⚡ Fast response loading  
+- 📱 Responsive design (desktop & mobile)  
+- 🌐 Deployed on Vercel  
 
-- 🎨 Beautiful and responsive UI with Tailwind CSS.
+---
 
-## 📦 Installation & Setup
+## 🛠️ Tech Stack
 
-1. Clone the repository:
-````
-git clone https://github.com/yourusername/quiz-trivia-app.git
-cd quiz-trivia-app
-````
+- Frontend: Vue
+- Styling: CSS / Tailwind CSS
+- API Integration: Open Trivia Database (https://opentdb.com/)  
+- Hosting: Vercel  
 
-2. Install dependencies:
+---
 
-```
+## 🧩 Architecture
+
+User → UI → OpenTDB API → Response → UI Display  
+
+Flow:
+1. User opens the application
+2. User chooses category, difficulty, no. of questions, and question type
+3. App sends a request to OpenTDB API base on user's chosen options
+4. API returns trivia questions and answers  
+5. Response is displayed in the UI  
+
+---
+
+## ⚠️ Limitations
+
+- The application relies on the **Open Trivia Database API**, which may have:
+  - Rate limits depending on usage
+  - Occasional downtime or latency
+  - Fixed question structure controlled by the API
+- No offline support
+- No user authentication or saved progress
+- No custom question generation (API-based only)
+
+---
+
+## 🚀 Running Locally
+
+Clone the repository:
+
+git clone https://github.com/your-username/triviona-app.git
+cd triviona-app
+
+Install dependencies:
+
 npm install
-````
 
-3. Run the development server:
-````
+Start development server:
+
 npm run dev
-````
 
-4. Open your browser and visit http://localhost:5173 (or the port Vue is running on).
+Open in browser:
 
-## 🔗 API Usage
+http://localhost:3000
 
-This app fetches quiz questions from Open Trivia Database using the following API endpoint:
+---
 
-https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple
+## 🚀 Deployment
 
-- `amount` – Number of questions.
+Deploy easily using Vercel:
 
-- `category` – Chosen category.
+1. Push project to GitHub  
+2. Import repository in Vercel  
+3. Add environment variables (if needed)  
+4. Deploy
+5. 
+---
 
-- `difficulty` – Easy, Medium, or Hard.
+## 👨‍💻 Author
 
-- `type` – Multiple choice or True/False.
-
-## 📌 Future Enhancements
-
-- 🎭 User authentication and leaderboards.
-
-- 📊 Timed quizzes and challenge mode.
-
-- 🌍 Multi-language support.
-
-## 📜 License
-
-This project is open-source and available for personal and educational use.
-
-Enjoy playing and improving your knowledge with Triviona App! 🚀🎉
+Built by a developer exploring API integration and modern web development.
